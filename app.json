@@ -5,25 +5,33 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "newArchEnabled": true,
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "ios": {
-      "supportsTablet": true
-    },
+    "plugins": [
+      [
+        "expo-local-authentication",
+        {
+          "faceIDPermission": "Allow CatVault to use Face ID for authentication."
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow CatVault to access your camera for capturing photos."
+        }
+      ]
+    ],
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "edgeToEdgeEnabled": true
+      "permissions": ["CAMERA"]
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
+    "ios": {
+      "infoPlist": {
+        "NSFaceIDUsageDescription": "Allow CatVault to use Face ID for authentication.",
+        "NSCameraUsageDescription": "Allow CatVault to access your camera for capturing photos."
+      }
     }
   }
 }
